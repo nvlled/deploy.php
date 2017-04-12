@@ -11,10 +11,10 @@ function writeln($s) {
 }
 
 function isShellClient() {
-    $agent = trim(@$_SERVER["HTTP_USER_AGENT"]) == "";
+    $agent = trim(@$_SERVER["HTTP_USER_AGENT"]);
     if ($agent == "")
         return true;
-    return preg_match("/^curl\/.*/", $agent);
+    return preg_match("/^(curl|wget)\/.*/", $agent);
 }
 
 // TODO: disallow simultaneous deployment
